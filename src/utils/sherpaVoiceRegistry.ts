@@ -1,6 +1,9 @@
+import { NativeEventEmitter, NativeModules } from 'react-native';
 import NativeFile from '@specs/NativeFile';
 import NativeSherpaOnnxTTS from '@specs/NativeSherpaOnnxTTS';
 import { getMMKVObject, setMMKVObject } from './mmkv/mmkv';
+
+const fileEmitter = new NativeEventEmitter(NativeModules.NativeFile);
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -97,12 +100,25 @@ export async function downloadVoice(
   NativeFile.mkdir(destDir);
   onProgress?.(0);
 
-  if (entry.compression === false) {
-    // MMS voices: individual files, no archive
-    await downloadMmsVoice(entry, destDir);
-  } else {
-    // VITS / Kokoro voices: tar.bz2 archive
-    await downloadArchiveVoice(entry, destDir, filesDir);
+  const subscription = onProgress
+    ? fileEmitter.addListener(
+        'NativeFile_downloadProgress',
+        (e: { loaded: number; total: number }) => {
+          if (e.total > 0) onProgress(e.loaded / e.total);
+        },
+      )
+    : null;
+
+  try {
+    if (entry.compression === false) {
+      // MMS voices: individual files, no archive
+      await downloadMmsVoice(entry, destDir);
+    } else {
+      // VITS / Kokoro voices: tar.bz2 archive
+      await downloadArchiveVoice(entry, destDir, filesDir);
+    }
+  } finally {
+    subscription?.remove();
   }
 
   // Write voice.json sidecar
@@ -132,7 +148,7 @@ async function downloadArchiveVoice(
 ): Promise<void> {
   const tempPath = `${filesDir}/models/${entry.id}.tmp.tar.bz2`;
   try {
-    await NativeFile.downloadFile(entry.url, tempPath, 'GET', {});
+    await NativeFile.downloadFile(entry.url, tempPath, 'GET', {}, undefined);
     // Kotlin extractTarBz2 deletes tempPath in its finally block
     await NativeSherpaOnnxTTS.extractTarBz2(tempPath, destDir);
   } finally {
@@ -149,8 +165,8 @@ async function downloadMmsVoice(
 ): Promise<void> {
   // MMS models ship as individual files at the same base URL
   const baseUrl = entry.url.substring(0, entry.url.lastIndexOf('/'));
-  await NativeFile.downloadFile(`${baseUrl}/model.onnx`, `${destDir}/model.onnx`, 'GET', {});
-  await NativeFile.downloadFile(`${baseUrl}/tokens.txt`, `${destDir}/tokens.txt`, 'GET', {});
+  await NativeFile.downloadFile(`${baseUrl}/model.onnx`, `${destDir}/model.onnx`, 'GET', {}, undefined);
+  await NativeFile.downloadFile(`${baseUrl}/tokens.txt`, `${destDir}/tokens.txt`, 'GET', {}, undefined);
 }
 
 // ── Delete ─────────────────────────────────────────────────────────────────

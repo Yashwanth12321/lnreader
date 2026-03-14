@@ -32,6 +32,8 @@ export interface Spec extends TurboModule {
     ExternalDirectoryPath: string;
     ExternalCachesDirectoryPath: string;
   };
+  addListener: (eventName: string) => void;
+  removeListeners: (count: number) => void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NativeFile');

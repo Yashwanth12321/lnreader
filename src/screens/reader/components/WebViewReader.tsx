@@ -1,9 +1,12 @@
 import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   AppState,
   NativeEventEmitter,
   NativeModules,
   StatusBar,
+  StyleSheet,
+  View,
 } from 'react-native';
 import WebView from 'react-native-webview';
 import color from 'color';
@@ -23,8 +26,18 @@ import {
 } from '@hooks/persisted/useSettings';
 import { getBatteryLevelSync } from 'react-native-device-info';
 import * as Speech from 'expo-speech';
+import {
+  setVoice as sherpaSetVoice,
+  startElement as sherpaStartElement,
+  isEngineReady as sherpaIsEngineReady,
+  pause as sherpaPause,
+  resume as sherpaResume,
+  stop as sherpaStop,
+  deinit as sherpaDeinit,
+} from '@utils/sherpaOnnxTTS';
 import { PLUGIN_STORAGE } from '@utils/Storages';
 import { useChapterContext } from '../ChapterContext';
+import { askForPostNotificationsPermission } from '@utils/askForPostNoftificationsPermission';
 import {
   showTTSNotification,
   updateTTSNotification,
@@ -110,23 +123,42 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
   const appStateRef = useRef(AppState.currentState);
   const ttsQueueRef = useRef<string[]>([]);
   const ttsQueueIndexRef = useRef<number>(0);
+  const [isTtsEngineLoading, setIsTtsEngineLoading] = useState(false);
 
   useEffect(() => {
     readerSettingsRef.current = readerSettings;
   }, [readerSettings]);
 
+  // Release the Sherpa-ONNX model from memory when leaving the reader
+  useEffect(() => {
+    return () => {
+      if (sherpaIsEngineReady()) {
+        sherpaDeinit().catch(() => {});
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const playListener = ttsMediaEmitter.addListener('TTSPlay', () => {
+      if (readerSettingsRef.current.ttsEngine === 'sherpa') {
+        sherpaResume();
+      }
       webViewRef.current?.injectJavaScript(`
         if (window.tts && !tts.reading) { tts.resume(); }
       `);
     });
     const pauseListener = ttsMediaEmitter.addListener('TTSPause', () => {
+      if (readerSettingsRef.current.ttsEngine === 'sherpa') {
+        sherpaPause();
+      }
       webViewRef.current?.injectJavaScript(`
         if (window.tts && tts.reading) { tts.pause(); }
       `);
     });
     const stopListener = ttsMediaEmitter.addListener('TTSStop', () => {
+      if (readerSettingsRef.current.ttsEngine === 'sherpa') {
+        sherpaStop();
+      }
       webViewRef.current?.injectJavaScript(`
         if (window.tts) { tts.stop(); }
       `);
@@ -269,7 +301,36 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
     return () => subscription.remove();
   }, [webViewRef]);
 
-  const speakText = (text: string) => {
+  const speakText = async (text: string) => {
+    const settings = readerSettingsRef.current;
+
+    if (settings.ttsEngine === 'sherpa') {
+      const voiceId = settings.sherpaTtsVoiceId;
+      if (!voiceId) {
+        // No voice selected — skip element
+        webViewRef.current?.injectJavaScript('tts.next?.()');
+        return;
+      }
+      // Show loading indicator only on first load (setVoice is instant when already loaded)
+      const needsLoad = !sherpaIsEngineReady();
+      if (needsLoad) setIsTtsEngineLoading(true);
+      try {
+        await sherpaSetVoice(voiceId);
+      } catch (e) {
+        console.error('sherpaOnnxTTS: setVoice failed', e);
+        webViewRef.current?.injectJavaScript('tts.next?.()');
+        return;
+      } finally {
+        if (needsLoad) setIsTtsEngineLoading(false);
+      }
+      const speed = settings.sherpaSpeed ?? 1.0;
+      sherpaStartElement(text, speed, () => {
+        webViewRef.current?.injectJavaScript('tts.next?.();');
+      });
+      return;
+    }
+
+    // System TTS
     Speech.speak(text, {
       onDone() {
         const isBackground =
@@ -299,18 +360,19 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
 
         webViewRef.current?.injectJavaScript('tts.next?.()');
       },
-      voice: readerSettingsRef.current.tts?.voice?.identifier,
-      pitch: readerSettingsRef.current.tts?.pitch || 1,
-      rate: readerSettingsRef.current.tts?.rate || 1,
+      voice: settings.tts?.voice?.identifier,
+      pitch: settings.tts?.pitch || 1,
+      rate: settings.tts?.rate || 1,
     });
   };
   const isRTL = plugin?.lang === 'Arabic' || plugin?.lang === 'Hebrew';
   const readerDir = isRTL ? 'rtl' : 'ltr';
 
   return (
+    <View style={webViewStyles.container}>
     <WebView
       ref={webViewRef}
-      style={{ backgroundColor: readerSettings.theme }}
+      style={{ flex: 1, backgroundColor: readerSettings.theme }}
       allowFileAccess={true}
       originWhitelist={['*']}
       scalesPageToFit={true}
@@ -395,11 +457,15 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
               }
               if (!isTTSReadingRef.current) {
                 isTTSReadingRef.current = true;
-                showTTSNotification({
-                  novelName: novel?.name || 'Unknown',
-                  chapterName: chapter.name,
-                  coverUri: novel?.cover || '',
-                  isPlaying: true,
+                askForPostNotificationsPermission().then(granted => {
+                  if (granted) {
+                    showTTSNotification({
+                      novelName: novel?.name || 'Unknown',
+                      chapterName: chapter.name,
+                      coverUri: novel?.cover || '',
+                      isPlaying: true,
+                    });
+                  }
                 });
               } else {
                 updateTTSNotification({
@@ -422,10 +488,18 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
             }
             break;
           case 'pause-speak':
-            Speech.stop();
+            if (readerSettingsRef.current.ttsEngine === 'sherpa') {
+              sherpaPause();
+            } else {
+              Speech.stop();
+            }
             break;
           case 'stop-speak':
-            Speech.stop();
+            if (readerSettingsRef.current.ttsEngine === 'sherpa') {
+              sherpaStop();
+            } else {
+              Speech.stop();
+            }
             if (!autoStartTTSRef.current) {
               isTTSReadingRef.current = false;
               ttsQueueRef.current = [];
@@ -546,7 +620,26 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
           `,
       }}
     />
+    {isTtsEngineLoading && (
+      <View style={webViewStyles.loadingOverlay}>
+        <ActivityIndicator size="small" color="#fff" />
+      </View>
+    )}
+    </View>
   );
 };
+
+const webViewStyles = StyleSheet.create({
+  container: { flex: 1 },
+  loadingOverlay: {
+    position: 'absolute',
+    bottom: 80,
+    alignSelf: 'center',
+    backgroundColor: 'rgba(0,0,0,0.55)',
+    borderRadius: 20,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+});
 
 export default memo(WebViewReader);

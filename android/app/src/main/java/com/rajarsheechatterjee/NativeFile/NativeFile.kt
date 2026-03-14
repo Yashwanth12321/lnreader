@@ -12,6 +12,7 @@ import com.facebook.react.bridge.WritableNativeMap
 import com.facebook.react.modules.network.CookieJarContainer
 import com.facebook.react.modules.network.ForwardingCookieHandler
 import com.facebook.react.modules.network.OkHttpClientProvider
+import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.lnreader.spec.NativeFileSpec
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -215,9 +216,28 @@ class NativeFile(context: ReactApplicationContext) :
                                     return
                                 }
                                 try {
+                                    val contentLength = it.body!!.contentLength()
+                                    var totalRead = 0L
+                                    var lastEmitted = 0L
+                                    val emitInterval = 256 * 1024L // emit every 256 KB
+                                    val buffer = ByteArray(BUFFER_SIZE)
                                     decompressStream(it.body!!.byteStream()).use { inputStream ->
                                         FileOutputStream(destPath).use { fos ->
-                                            inputStream.copyTo(fos, BUFFER_SIZE)
+                                            var read: Int
+                                            while (inputStream.read(buffer).also { read = it } != -1) {
+                                                fos.write(buffer, 0, read)
+                                                totalRead += read
+                                                if (contentLength > 0 && totalRead - lastEmitted >= emitInterval) {
+                                                    lastEmitted = totalRead
+                                                    val params = WritableNativeMap()
+                                                    params.putString("destPath", destPath)
+                                                    params.putDouble("loaded", totalRead.toDouble())
+                                                    params.putDouble("total", contentLength.toDouble())
+                                                    reactApplicationContext.getJSModule(
+                                                        DeviceEventManagerModule.RCTDeviceEventEmitter::class.java
+                                                    ).emit("NativeFile_downloadProgress", params)
+                                                }
+                                            }
                                         }
                                     }
                                     promise.resolve(null)
@@ -245,4 +265,7 @@ class NativeFile(context: ReactApplicationContext) :
         }
         return constants
     }
+
+    override fun addListener(eventName: String?) { /* required for NativeEventEmitter */ }
+    override fun removeListeners(count: Double) { /* required for NativeEventEmitter */ }
 }

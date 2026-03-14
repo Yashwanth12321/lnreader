@@ -6,7 +6,8 @@ export interface Spec extends TurboModule {
   deinitEngine(): Promise<void>;
 
   // Synthesis + playback
-  speak(text: string): Promise<void>;
+  speak(text: string, speed: number): Promise<void>;
+  speakAll(sentences: string[], speed: number): Promise<void>;
   pause(): Promise<void>;
   resume(): Promise<void>;
   stop(): Promise<void>;
