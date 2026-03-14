@@ -119,9 +119,7 @@ export function startElement(text: string, speed: number, onDone: () => void): v
 
     await NativeSherpaOnnxTTS.speakAll(chunks, speed);
     if (_sessionId === session) onDone();
-  })().catch(e => {
-    // swallow — error is non-fatal; session may already be superseded
-  });
+  })();
 }
 
 export async function pause(): Promise<void> {
