@@ -14,7 +14,7 @@ function normaliseText(text: string): string {
     .replace(/[\u2013\u2014\u2015]/g, ' - ')                 // en/em dash → -
     .replace(/\u2026/g, '...')                                // ellipsis → ...
     .replace(/[\u00AB\u00BB]/g, '"')                          // « » → "
-    .replace(/[^\x00-\x7F\u00C0-\u024F]/g, ' ')              // other non-latin → space
+    .replace(/[^\u0000-\u007F\u00C0-\u024F]/g, ' ')           // other non-latin → space
     .replace(/\s{2,}/g, ' ')                                  // collapse multi-spaces
     .trim();
 }
@@ -120,7 +120,7 @@ export function startElement(text: string, speed: number, onDone: () => void): v
     await NativeSherpaOnnxTTS.speakAll(chunks, speed);
     if (_sessionId === session) onDone();
   })().catch(e => {
-    if (_sessionId === session) console.warn('sherpaOnnxTTS: speak error', e);
+    // swallow — error is non-fatal; session may already be superseded
   });
 }
 
