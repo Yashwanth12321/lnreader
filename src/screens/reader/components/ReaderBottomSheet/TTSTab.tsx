@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import {
   View,
   StyleSheet,
   Text,
   ScrollView,
   FlatList,
+  SectionList,
+  TextInput,
   TouchableOpacity,
   Alert,
 } from 'react-native';
@@ -24,9 +26,14 @@ import ReaderSheetPreferenceItem from './ReaderSheetPreferenceItem';
 import {
   getVoiceManifest,
   listInstalledVoices,
+  getDownloadingVoiceId,
+  getExtractingVoiceId,
+  clearDownloadState,
   downloadVoice,
   deleteVoice,
   initRegistry,
+  isDownloadCancelled,
+  CancelToken,
   VoiceEntry,
 } from '@utils/sherpaVoiceRegistry';
 import { setVoice as sherpaSetVoice, stop as sherpaStop } from '@utils/sherpaOnnxTTS';
@@ -174,7 +181,11 @@ interface SherpaVoicePickerModalProps {
   activeVoiceId?: string;
   downloadingId: string | null;
   downloadProgress: number;
+  downloadQueue: string[];
+  loadingModelId: string | null;
   onDownload: (id: string) => void;
+  onCancelDownload: () => void;
+  onCancelQueued: (id: string) => void;
   onSelect: (id: string) => void;
   onDelete: (id: string) => void;
 }
@@ -187,12 +198,17 @@ const SherpaVoicePickerModal: React.FC<SherpaVoicePickerModalProps> = ({
   activeVoiceId,
   downloadingId,
   downloadProgress,
+  downloadQueue,
+  loadingModelId,
   onDownload,
+  onCancelDownload,
+  onCancelQueued,
   onSelect,
   onDelete,
 }) => {
   const theme = useTheme();
   const [langFilter, setLangFilter] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const availableLangs = useMemo(() => {
     const set = new Set<string>();
@@ -202,27 +218,58 @@ const SherpaVoicePickerModal: React.FC<SherpaVoicePickerModalProps> = ({
     return Array.from(set).sort();
   }, [voices]);
 
-  const filtered = useMemo(() => {
-    if (langFilter.length === 0) return voices;
-    return voices.filter(v =>
-      v.language.some(l => l.lang_code && langFilter.includes(l.lang_code.split('_')[0])),
-    );
-  }, [voices, langFilter]);
-
   const toggleLang = (lang: string) =>
     setLangFilter(prev =>
       prev.includes(lang) ? prev.filter(l => l !== lang) : [...prev, lang],
     );
 
   useEffect(() => {
-    if (visible) setLangFilter([]);
+    if (visible) {
+      setLangFilter([]);
+      setSearchQuery('');
+    }
   }, [visible]);
+
+  // Filter voices by search query and language chips
+  const matchesSearch = useCallback((v: VoiceEntry, q: string) => {
+    const lower = q.toLowerCase();
+    return (
+      v.name.toLowerCase().includes(lower) ||
+      v.developer.toLowerCase().includes(lower) ||
+      v.language.some(
+        l =>
+          l.language_name.toLowerCase().includes(lower) ||
+          l.lang_code.toLowerCase().includes(lower),
+      )
+    );
+  }, []);
+
+  const sections = useMemo(() => {
+    const q = searchQuery.trim();
+    const byLang = (v: VoiceEntry) =>
+      langFilter.length === 0 ||
+      v.language.some(l => l.lang_code && langFilter.includes(l.lang_code.split('_')[0]));
+    const bySearch = (v: VoiceEntry) => !q || matchesSearch(v, q);
+
+    const downloaded = voices.filter(
+      v => installedVoices.includes(v.id) && byLang(v) && bySearch(v),
+    );
+    const available = voices.filter(
+      v => !installedVoices.includes(v.id) && byLang(v) && bySearch(v),
+    );
+    const result: { title: string; data: VoiceEntry[] }[] = [];
+    if (downloaded.length > 0) result.push({ title: 'Downloaded', data: downloaded });
+    if (available.length > 0) result.push({ title: 'Available', data: available });
+    return result;
+  }, [voices, installedVoices, langFilter, searchQuery, matchesSearch]);
 
   const renderRow = useCallback(
     ({ item: voice }: { item: VoiceEntry }) => {
       const isInstalled = installedVoices.includes(voice.id);
       const isActive = activeVoiceId === voice.id;
       const isDownloading = downloadingId === voice.id;
+      const isQueued = downloadQueue.includes(voice.id);
+      const isLoadingModel = loadingModelId === voice.id;
       const langLabel = voice.language.map(l => l.language_name).filter(Boolean).join(', ');
 
       return (
@@ -251,42 +298,64 @@ const SherpaVoicePickerModal: React.FC<SherpaVoicePickerModalProps> = ({
 
           <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 8 }}>
             {isDownloading ? (
-              <View style={styles.progressContainer}>
-                <Text style={[styles.downloadStatus, { color: theme.onSurfaceVariant }]}>
-                  {downloadProgress >= 1
-                    ? 'Extracting…'
-                    : downloadProgress > 0
-                    ? `${Math.round(downloadProgress * 100)}%`
-                    : `${voice.filesize_mb} MB`}
-                </Text>
-                {downloadProgress < 1 && (
-                  <View style={[styles.progressTrack, { backgroundColor: theme.surfaceVariant }]}>
-                    <View
-                      style={[
-                        styles.progressFill,
-                        {
-                          backgroundColor: theme.primary,
-                          width: downloadProgress > 0 ? `${Math.round(downloadProgress * 100)}%` : '0%',
-                        },
-                      ]}
-                    />
-                  </View>
-                )}
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={styles.progressContainer}>
+                  <Text style={[styles.downloadStatus, { color: theme.onSurfaceVariant }]}>
+                    {downloadProgress >= 1
+                      ? 'Extracting…'
+                      : downloadProgress > 0
+                      ? `${Math.round(downloadProgress * 100)}%`
+                      : `${voice.filesize_mb} MB`}
+                  </Text>
+                  {downloadProgress < 1 && (
+                    <View style={[styles.progressTrack, { backgroundColor: theme.surfaceVariant }]}>
+                      <View
+                        style={[
+                          styles.progressFill,
+                          {
+                            backgroundColor: theme.primary,
+                            width: downloadProgress > 0 ? `${Math.round(downloadProgress * 100)}%` : '0%',
+                          },
+                        ]}
+                      />
+                    </View>
+                  )}
+                </View>
+                <TouchableOpacity onPress={onCancelDownload} style={styles.cancelBtn}>
+                  <Text style={[styles.cancelBtnText, { color: theme.onSurfaceVariant }]}>✕</Text>
+                </TouchableOpacity>
               </View>
             ) : isInstalled ? (
               <>
-                {!isActive && (
-                  <TouchableOpacity
-                    onPress={() => { onSelect(voice.id); onDismiss(); }}
-                    style={styles.actionBtn}
-                  >
-                    <Text style={[styles.actionBtnText, { color: theme.primary }]}>Select</Text>
-                  </TouchableOpacity>
+                {isLoadingModel ? (
+                  <Text style={[styles.downloadStatus, { color: theme.onSurfaceVariant }]}>
+                    Loading model…
+                  </Text>
+                ) : (
+                  <>
+                    {!isActive && (
+                      <TouchableOpacity
+                        onPress={() => { onSelect(voice.id); onDismiss(); }}
+                        style={styles.actionBtn}
+                      >
+                        <Text style={[styles.actionBtnText, { color: theme.primary }]}>Select</Text>
+                      </TouchableOpacity>
+                    )}
+                    <TouchableOpacity onPress={() => onDelete(voice.id)} style={styles.actionBtn}>
+                      <Text style={[styles.actionBtnText, { color: theme.error }]}>Delete</Text>
+                    </TouchableOpacity>
+                  </>
                 )}
-                <TouchableOpacity onPress={() => onDelete(voice.id)} style={styles.actionBtn}>
-                  <Text style={[styles.actionBtnText, { color: theme.error }]}>Delete</Text>
-                </TouchableOpacity>
               </>
+            ) : isQueued ? (
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={[styles.downloadStatus, { color: theme.onSurfaceVariant }]}>
+                  Queued
+                </Text>
+                <TouchableOpacity onPress={() => onCancelQueued(voice.id)} style={styles.cancelBtn}>
+                  <Text style={[styles.cancelBtnText, { color: theme.onSurfaceVariant }]}>✕</Text>
+                </TouchableOpacity>
+              </View>
             ) : (
               <TouchableOpacity onPress={() => onDownload(voice.id)} style={styles.actionBtn}>
                 <Text style={[styles.actionBtnText, { color: theme.primary }]}>Download</Text>
@@ -296,8 +365,22 @@ const SherpaVoicePickerModal: React.FC<SherpaVoicePickerModalProps> = ({
         </View>
       );
     },
-    [installedVoices, activeVoiceId, downloadingId, downloadProgress, theme, onDownload, onSelect, onDelete, onDismiss],
+    [installedVoices, activeVoiceId, downloadingId, downloadProgress, downloadQueue, loadingModelId, theme, onDownload, onCancelDownload, onCancelQueued, onSelect, onDelete, onDismiss],
   );
+
+  const renderSectionHeader = useCallback(
+    ({ section }: { section: { title: string; data: VoiceEntry[] } }) => (
+      <View style={[styles.sectionHeader, { backgroundColor: theme.surface }]}>
+        <Text style={[styles.sectionHeaderText, { color: theme.onSurfaceVariant }]}>
+          {section.title}
+          <Text style={{ fontWeight: 'normal' }}> ({section.data.length})</Text>
+        </Text>
+      </View>
+    ),
+    [theme],
+  );
+
+  const isEmpty = sections.length === 0;
 
   return (
     <Portal>
@@ -308,44 +391,67 @@ const SherpaVoicePickerModal: React.FC<SherpaVoicePickerModalProps> = ({
       >
         <Text style={[styles.modalTitle, { color: theme.onSurface }]}>Offline Voices</Text>
 
+        {/* Search bar */}
+        <View style={[styles.searchContainer, { backgroundColor: theme.surfaceVariant, borderColor: theme.outline }]}>
+          <Text style={[styles.searchIcon, { color: theme.onSurfaceVariant }]}>⌕</Text>
+          <TextInput
+            style={[styles.searchInput, { color: theme.onSurface }]}
+            placeholder="Search by name, language…"
+            placeholderTextColor={theme.onSurfaceVariant}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            autoCorrect={false}
+            autoCapitalize="none"
+            clearButtonMode="while-editing"
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.searchClear}>
+              <Text style={{ color: theme.onSurfaceVariant, fontSize: 14 }}>✕</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+
+        {/* Language filter chips */}
         {availableLangs.length > 0 && (
-          <View style={styles.languageFilterContainer}>
-            <Text style={[styles.filterLabel, { color: theme.onSurfaceVariant }]}>
-              Filter by language:
-            </Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {availableLangs.map(lang => {
-                const active = langFilter.includes(lang);
-                return (
-                  <Chip
-                    key={lang}
-                    selected={active}
-                    onPress={() => toggleLang(lang)}
-                    style={[styles.langChip, active && { backgroundColor: theme.primary }]}
-                    textStyle={{ color: active ? theme.onPrimary : theme.onSurface, fontSize: 12 }}
-                  >
-                    {lang.toUpperCase()}
-                  </Chip>
-                );
-              })}
-            </ScrollView>
-          </View>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.langFilterRow}
+          >
+            {availableLangs.map(lang => {
+              const active = langFilter.includes(lang);
+              return (
+                <Chip
+                  key={lang}
+                  selected={active}
+                  onPress={() => toggleLang(lang)}
+                  style={[styles.langChip, active && { backgroundColor: theme.primary }]}
+                  textStyle={{ color: active ? theme.onPrimary : theme.onSurface, fontSize: 12 }}
+                >
+                  {lang.toUpperCase()}
+                </Chip>
+              );
+            })}
+          </ScrollView>
         )}
 
-        <FlatList
-          data={filtered}
-          keyExtractor={item => item.id}
-          style={styles.voiceList}
-          renderItem={renderRow}
-          initialNumToRender={12}
-          maxToRenderPerBatch={10}
-          windowSize={5}
-          ListEmptyComponent={
-            <Text style={[styles.emptyText, { color: theme.onSurfaceVariant }]}>
-              No voices found
-            </Text>
-          }
-        />
+        {isEmpty ? (
+          <Text style={[styles.emptyText, { color: theme.onSurfaceVariant }]}>
+            {searchQuery ? 'No voices match your search' : 'No voices found'}
+          </Text>
+        ) : (
+          <SectionList
+            sections={sections}
+            keyExtractor={item => item.id}
+            style={styles.voiceList}
+            renderItem={renderRow}
+            renderSectionHeader={renderSectionHeader}
+            stickySectionHeadersEnabled
+            initialNumToRender={12}
+            maxToRenderPerBatch={10}
+            windowSize={5}
+          />
+        )}
 
         <Button title="Close" mode="outlined" onPress={onDismiss} style={{ marginTop: 16 }} />
       </Modal>
@@ -420,30 +526,127 @@ const TTSTab: React.FC = () => {
   const [sherpaModalVisible, setSherpaModalVisible] = useState(false);
   const [downloadingId, setDownloadingId] = useState<string | null>(null);
   const [downloadProgress, setDownloadProgress] = useState(0);
+  const [downloadQueue, setDownloadQueue] = useState<string[]>([]);
+  const downloadingIdRef = useRef<string | null>(null); // ref mirrors state for use inside closures
+  const queueRef = useRef<string[]>([]);                // ref mirrors state for use inside closures
+  const cancelTokenRef = useRef<CancelToken | null>(null);
+  const activeRunRef = useRef<object | null>(null);     // unique object per runDownload call
+  const [loadingModelId, setLoadingModelId] = useState<string | null>(null);
   const [testing, setTesting] = useState(false);
 
   useEffect(() => {
     initRegistry().then(() => {
       setSherpaVoices(getVoiceManifest());
       setInstalledVoices(listInstalledVoices());
+      // Restore in-progress download/extract state if user navigated away mid-operation
+      const inProgress = getDownloadingVoiceId();
+      if (inProgress) {
+        setDownloadingId(inProgress);
+        // If extraction was in progress, restore downloadProgress = 1.0 so the
+        // UI shows "Extracting…" instead of the empty file-size state.
+        if (getExtractingVoiceId() === inProgress) setDownloadProgress(1.0);
+      }
     });
   }, []);
 
   const refreshInstalled = () => setInstalledVoices(listInstalledVoices());
 
-  const handleDownload = async (voiceId: string) => {
+  // Runs one download to completion, then pops and starts the next in the queue.
+  // Using refs so the closure always sees the latest queue without stale captures.
+  const runDownload = useCallback(async (voiceId: string) => {
+    // Unique object per call — used in finally to detect if THIS run is still
+    // the active one, even when the same voiceId is re-downloaded after a cancel.
+    const runHandle = {};
+    activeRunRef.current = runHandle;
+
+    const token: CancelToken = { cancelled: false };
+    cancelTokenRef.current = token;
+    downloadingIdRef.current = voiceId;
     setDownloadingId(voiceId);
     setDownloadProgress(0);
     try {
-      await downloadVoice(voiceId, p => setDownloadProgress(p));
+      await downloadVoice(voiceId, p => setDownloadProgress(p), token);
       refreshInstalled();
+      // Pre-warm: load the ONNX model immediately after install.
+      setLoadingModelId(voiceId);
+      try {
+        await sherpaSetVoice(voiceId);
+      } catch {
+        // non-fatal — TTS will retry on first use
+      } finally {
+        setLoadingModelId(null);
+      }
     } catch (e: any) {
-      Alert.alert('Download failed', e?.message ?? String(e));
+      if (!isDownloadCancelled(e)) {
+        Alert.alert('Download failed', e?.message ?? String(e));
+      }
     } finally {
-      setDownloadingId(null);
-      setDownloadProgress(0);
+      // Only clean up if this specific run instance is still the active one.
+      // Checking voiceId alone is insufficient — if the same model is re-downloaded
+      // after a cancel, the zombie run's finally would fire with the same voiceId
+      // and wipe out the new run's state. The runHandle object is unique per call.
+      if (activeRunRef.current === runHandle) {
+        activeRunRef.current = null;
+        downloadingIdRef.current = null;
+        setDownloadingId(null);
+        setDownloadProgress(0);
+        const next = queueRef.current[0];
+        if (next) {
+          queueRef.current = queueRef.current.slice(1);
+          setDownloadQueue([...queueRef.current]);
+          runDownload(next);
+        }
+      }
     }
-  };
+  }, [refreshInstalled]);
+
+  const handleDownload = useCallback((voiceId: string) => {
+    // If a download is already active, add to queue instead of starting concurrently
+    if (downloadingIdRef.current !== null) {
+      if (!queueRef.current.includes(voiceId)) {
+        queueRef.current = [...queueRef.current, voiceId];
+        setDownloadQueue([...queueRef.current]);
+      }
+      return;
+    }
+    runDownload(voiceId);
+  }, [runDownload]);
+
+  const handleCancelDownload = useCallback(() => {
+    if (!cancelTokenRef.current) return;
+    // Remove the progress listener immediately — prevents the stale download's
+    // events from bleeding into the next download's progress bar.
+    cancelTokenRef.current.removeSubscription?.();
+    // Abort the in-flight OkHttp call so it doesn't hold a connection slot.
+    // Without this, repeated cancels exhaust OkHttp's 5-connections-per-host
+    // limit, causing new download attempts to be queued and never start.
+    cancelTokenRef.current.cancelNativeDownload?.();
+    // Signal the token so downloadVoice discards results when it eventually wakes up
+    cancelTokenRef.current.cancelled = true;
+    cancelTokenRef.current = null;
+
+    // Immediately reset UI — don't wait for the native download/extract to finish.
+    // Clearing activeRunRef prevents the zombie run's finally block from wiping
+    // out the next download's state (critical when re-downloading the same model).
+    activeRunRef.current = null;
+    clearDownloadState();
+    downloadingIdRef.current = null;
+    setDownloadingId(null);
+    setDownloadProgress(0);
+
+    // Kick off next queued item right away
+    const next = queueRef.current[0];
+    if (next) {
+      queueRef.current = queueRef.current.slice(1);
+      setDownloadQueue([...queueRef.current]);
+      runDownload(next);
+    }
+  }, [runDownload]);
+
+  const handleCancelQueued = useCallback((voiceId: string) => {
+    queueRef.current = queueRef.current.filter(id => id !== voiceId);
+    setDownloadQueue([...queueRef.current]);
+  }, []);
 
   const handleSelect = useCallback(
     (voiceId: string) => setChapterReaderSettings({ sherpaTtsVoiceId: voiceId }),
@@ -693,7 +896,11 @@ const TTSTab: React.FC = () => {
         activeVoiceId={sherpaTtsVoiceId}
         downloadingId={downloadingId}
         downloadProgress={downloadProgress}
+        downloadQueue={downloadQueue}
+        loadingModelId={loadingModelId}
         onDownload={handleDownload}
+        onCancelDownload={handleCancelDownload}
+        onCancelQueued={handleCancelQueued}
         onSelect={handleSelect}
         onDelete={handleDelete}
       />
@@ -749,8 +956,28 @@ const styles = StyleSheet.create({
   modalTitle: { fontSize: 20, fontWeight: 'bold', marginBottom: 12 },
   languageFilterContainer: { marginBottom: 12 },
   filterLabel: { fontSize: 12, marginBottom: 8 },
-  langChip: { marginEnd: 8, marginBottom: 8 },
+  langChip: { marginEnd: 8, marginBottom: 4 },
+  langFilterRow: { marginBottom: 8, flexGrow: 0 },
   voiceList: { maxHeight: 350 },
+
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 8,
+    borderWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    height: 40,
+  },
+  searchIcon: { fontSize: 18, marginRight: 6 },
+  searchInput: { flex: 1, fontSize: 14, paddingVertical: 0 },
+  searchClear: { padding: 4 },
+
+  sectionHeader: {
+    paddingVertical: 6,
+    paddingHorizontal: 2,
+  },
+  sectionHeaderText: { fontSize: 11, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 },
   voiceItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -777,4 +1004,6 @@ const styles = StyleSheet.create({
   downloadStatus: { fontSize: 11, marginBottom: 4 },
   progressTrack: { width: 72, height: 4, borderRadius: 2, overflow: 'hidden' },
   progressFill: { height: 4, borderRadius: 2 },
+  cancelBtn: { paddingHorizontal: 6, paddingVertical: 4, marginLeft: 2 },
+  cancelBtnText: { fontSize: 13 },
 });

@@ -231,6 +231,7 @@ const WebViewReader: React.FC<WebViewReaderProps> = ({ onPress }) => {
 
           // Stop any currently playing speech
           Speech.stop();
+          sherpaStop().catch(() => {});
 
           // Update WebView settings
           webViewRef.current?.injectJavaScript(

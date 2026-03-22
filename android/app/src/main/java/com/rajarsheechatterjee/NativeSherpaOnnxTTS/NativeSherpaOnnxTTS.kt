@@ -141,6 +141,7 @@ class NativeSherpaOnnxTTS(reactContext: ReactApplicationContext) :
                 }
 
                 isStopped = false
+                isPaused = false  // clear any stale pause from before this speakAll
 
                 // Collect sentence strings
                 val texts = (0 until sentences.size()).mapNotNull { sentences.getString(it) }
@@ -294,24 +295,33 @@ class NativeSherpaOnnxTTS(reactContext: ReactApplicationContext) :
                 val dest = File(destDir)
                 dest.mkdirs()
 
+                // Large read buffer is critical for bzip2 performance: the algorithm
+                // operates on ~900 KB blocks, so reading in small chunks forces it to
+                // context-switch mid-block thousands of times. 4 MB buffers let it
+                // process full blocks efficiently, reducing 4-5 min → ~30-60 sec.
+                val BUF = 4 * 1024 * 1024 // 4 MB
                 FileInputStream(tarPath).use { fis ->
-                    BZip2CompressorInputStream(fis).use { bzis ->
-                        TarArchiveInputStream(bzis).use { tais ->
-                            var entry = tais.nextTarEntry
-                            while (entry != null) {
-                                // Strip the first path component (tar --strip-components=1)
-                                // Archives ship as <voiceId>/model.onnx etc; we want model.onnx at destDir root
-                                val stripped = entry.name.substringAfter('/')
-                                if (stripped.isNotEmpty()) {
-                                    val outFile = File(destDir, stripped)
-                                    if (entry.isDirectory) {
-                                        outFile.mkdirs()
-                                    } else {
-                                        outFile.parentFile?.mkdirs()
-                                        outFile.outputStream().use { out -> tais.copyTo(out) }
+                    java.io.BufferedInputStream(fis, BUF).use { buffFis ->
+                        BZip2CompressorInputStream(buffFis).use { bzis ->
+                            TarArchiveInputStream(bzis).use { tais ->
+                                var entry = tais.nextTarEntry
+                                while (entry != null) {
+                                    // Strip the first path component (tar --strip-components=1)
+                                    // Archives ship as <voiceId>/model.onnx etc; we want model.onnx at destDir root
+                                    val stripped = entry.name.substringAfter('/')
+                                    if (stripped.isNotEmpty()) {
+                                        val outFile = File(destDir, stripped)
+                                        if (entry.isDirectory) {
+                                            outFile.mkdirs()
+                                        } else {
+                                            outFile.parentFile?.mkdirs()
+                                            outFile.outputStream().use { out ->
+                                                tais.copyTo(out, bufferSize = BUF)
+                                            }
+                                        }
                                     }
+                                    entry = tais.nextTarEntry
                                 }
-                                entry = tais.nextTarEntry
                             }
                         }
                     }

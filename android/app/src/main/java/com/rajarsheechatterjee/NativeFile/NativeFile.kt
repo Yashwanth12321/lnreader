@@ -39,6 +39,8 @@ class NativeFile(context: ReactApplicationContext) :
     private val BUFFER_SIZE = 4096
     private val okHttpClient = OkHttpClientProvider.createClient()
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    // Tracks in-flight download calls by destPath so they can be cancelled.
+    private val activeCalls = java.util.concurrent.ConcurrentHashMap<String, okhttp3.Call>()
 
     init {
         val cookieContainer = okHttpClient.cookieJar as CookieJarContainer
@@ -203,15 +205,18 @@ class NativeFile(context: ReactApplicationContext) :
                     requestBuilder.post(body.toRequestBody())
                 }
 
-                okHttpClient.newCall(requestBuilder.build())
-                    .enqueue(object : Callback {
+                val call = okHttpClient.newCall(requestBuilder.build())
+                activeCalls[destPath] = call
+                call.enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {
+                            activeCalls.remove(destPath)
                             promise.reject(e)
                         }
 
                         override fun onResponse(call: Call, response: Response) {
                             response.use {
                                 if (!it.isSuccessful || it.body == null) {
+                                    activeCalls.remove(destPath)
                                     promise.reject(Exception("Failed to download: ${it.code}"))
                                     return
                                 }
@@ -240,8 +245,10 @@ class NativeFile(context: ReactApplicationContext) :
                                             }
                                         }
                                     }
+                                    activeCalls.remove(destPath)
                                     promise.resolve(null)
                                 } catch (e: Exception) {
+                                    activeCalls.remove(destPath)
                                     promise.reject(e)
                                 }
                             }
@@ -251,6 +258,10 @@ class NativeFile(context: ReactApplicationContext) :
                 promise.reject(e)
             }
         }
+    }
+
+    override fun cancelDownload(destPath: String) {
+        activeCalls.remove(destPath)?.cancel()
     }
 
     override fun getTypedExportedConstants(): MutableMap<String, Any> {
