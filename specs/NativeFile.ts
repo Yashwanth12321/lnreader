@@ -28,10 +28,13 @@ export interface Spec extends TurboModule {
     headers: { [key: string]: string } | Headers,
     body?: string,
   ) => Promise<void>;
+  cancelDownload: (destPath: string) => void;
   getConstants: () => {
     ExternalDirectoryPath: string;
     ExternalCachesDirectoryPath: string;
   };
+  addListener: (eventName: string) => void;
+  removeListeners: (count: number) => void;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('NativeFile');

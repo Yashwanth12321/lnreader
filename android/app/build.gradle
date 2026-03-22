@@ -87,6 +87,10 @@ android {
         applicationId project.hasProperty('customAppId') ? project.getProperty('customAppId') : 'com.rajarsheechatterjee.LNReader'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        ndk {
+            // Sherpa-ONNX AAR only ships arm64-v8a and x86_64; x86 emulators unsupported
+            abiFilters "arm64-v8a", "x86_64"
+        }
         // Generated version code. Supports versions up to 1024.1024.2048
         versionCode ((((versionMajor << 10) | versionMinor) << 11) | versionPatch)
         versionName "$versionMajor.$versionMinor.$versionPatch"
@@ -121,9 +125,15 @@ android {
             path "src/main/jni/CMakeLists.txt"
         }
     }
+    packagingOptions {
+        // Sherpa-ONNX AAR and the existing CMake target both ship libc++_shared.so
+        pickFirst '**/libc++_shared.so'
+    }
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation 'org.apache.commons:commons-compress:1.26.1'
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
     implementation 'androidx.core:core-ktx:1.15.0'

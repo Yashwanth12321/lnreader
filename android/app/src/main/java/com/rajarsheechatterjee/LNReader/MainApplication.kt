@@ -16,6 +16,7 @@ import com.facebook.soloader.SoLoader
 import com.rajarsheechatterjee.NativeFile.NativePackage
 import com.rajarsheechatterjee.NativeVolumeButtonListener.NativeVolumeButtonListenerPackage
 import com.rajarsheechatterjee.NativeTTSMediaControl.NativeTTSMediaControlPackage
+import com.rajarsheechatterjee.NativeSherpaOnnxTTS.NativeSherpaOnnxTTSPackage
 import com.rajarsheechatterjee.NativeZipArchive.NativeZipArchivePackage
 import expo.modules.ApplicationLifecycleDispatcher
 
@@ -26,6 +27,7 @@ class MainApplication : Application(), ReactApplication {
                 PackageList(this).packages.apply {
                     add(NativePackage())
                     add(NativeTTSMediaControlPackage())
+                    add(NativeSherpaOnnxTTSPackage())
                     add(NativeVolumeButtonListenerPackage())
                     add(NativeZipArchivePackage())
                 }

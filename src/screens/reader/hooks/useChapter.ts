@@ -29,6 +29,7 @@ import WebView from 'react-native-webview';
 import { useFullscreenMode } from '@hooks';
 import { Dimensions, NativeEventEmitter } from 'react-native';
 import * as Speech from 'expo-speech';
+import { stop as sherpaStop } from '@utils/sherpaOnnxTTS';
 import { defaultTo } from 'lodash-es';
 import { showToast } from '@utils/showToast';
 import { getString } from '@strings/translations';
@@ -100,6 +101,7 @@ export default function useChapter(
       emmiter.removeAllListeners('VolumeUp');
       emmiter.removeAllListeners('VolumeDown');
       Speech.stop();
+      sherpaStop().catch(() => {});
     };
   }, [useVolumeButtons, chapter, connectVolumeButton]);
 

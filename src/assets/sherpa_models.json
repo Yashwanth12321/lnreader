@@ -1,0 +1,3679 @@
+{
+    "kokoro-en-en-19": {
+        "id": "kokoro-en-en-19",
+        "model_type": "kokoro",
+        "developer": "kokoro",
+        "name": "en",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "19",
+        "sample_rate": 24000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-en-v0_19.tar.bz2",
+        "compression": true,
+        "filesize_mb": 304.84
+    },
+    "kokoro-zh_en-int8-multi": {
+        "id": "kokoro-zh_en-int8-multi",
+        "model_type": "kokoro",
+        "developer": "kokoro",
+        "name": "int8",
+        "language": [
+            {
+                "lang_code": "zh",
+                "language_name": "Chinese",
+                "country": "CN"
+            },
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "multi",
+        "sample_rate": 24000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-multi-lang-v1_1.tar.bz2",
+        "compression": true,
+        "filesize_mb": 140.19
+    },
+    "kokoro-zh_en-multi-lang": {
+        "id": "kokoro-zh_en-multi-lang",
+        "model_type": "kokoro",
+        "developer": "kokoro",
+        "name": "multi",
+        "language": [
+            {
+                "lang_code": "zh",
+                "language_name": "Chinese",
+                "country": "CN"
+            },
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "lang",
+        "sample_rate": 24000,
+        "num_speakers": 1,
+        "url": "kokoro-multi-lang-v1_1.tar.bz2",
+        "compression": true,
+        "filesize_mb": 347.93
+    },
+    "icefall-fs-ljspeech": {
+        "id": "icefall-fs-ljspeech",
+        "model_type": "matcha",
+        "developer": "icefall",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-en_US-ljspeech.tar.bz2",
+        "compression": true,
+        "filesize_mb": 73.2
+    },
+    "icefall-fs-baker": {
+        "id": "icefall-fs-baker",
+        "model_type": "matcha",
+        "developer": "icefall",
+        "name": "baker",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-icefall-zh-baker.tar.bz2",
+        "compression": true,
+        "filesize_mb": 71.76
+    },
+    "tts-fs-khadijah": {
+        "id": "tts-fs-khadijah",
+        "model_type": "matcha",
+        "developer": "tts",
+        "name": "khadijah",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-tts-fa_en-khadijah.tar.bz2",
+        "compression": true,
+        "filesize_mb": 72.97
+    },
+    "tts-fs-musa": {
+        "id": "tts-fs-musa",
+        "model_type": "matcha",
+        "developer": "tts",
+        "name": "musa",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/matcha-tts-fa_en-musa.tar.bz2",
+        "compression": true,
+        "filesize_mb": 72.96
+    },
+    "cantonese-fs-xiaomaiiwn": {
+        "id": "cantonese-fs-xiaomaiiwn",
+        "model_type": "vits",
+        "developer": "cantonese",
+        "name": "xiaomaiiwn",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-cantonese-hf-xiaomaiiwn.tar.bz2",
+        "compression": true,
+        "filesize_mb": 102.99
+    },
+    "coqui-bg-cv": {
+        "id": "coqui-bg-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "bg",
+                "language_name": "Bulgarian",
+                "country": "BG"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-bg-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "coqui-bn-custom_female": {
+        "id": "coqui-bn-custom_female",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "custom_female",
+        "language": [
+            {
+                "lang_code": "bn",
+                "language_name": "Bangla",
+                "country": "BD"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-bn-custom_female.tar.bz2",
+        "compression": true,
+        "filesize_mb": 103.05
+    },
+    "coqui-cs-cv": {
+        "id": "coqui-cs-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "cs",
+                "language_name": "Czech",
+                "country": "CZ"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-cs-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-da-cv": {
+        "id": "coqui-da-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "da",
+                "language_name": "Danish",
+                "country": "DK"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-da-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-de-css10": {
+        "id": "coqui-de-css10",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "css10",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-de-css10.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.0
+    },
+    "coqui-en-ljspeech-neon": {
+        "id": "coqui-en-ljspeech-neon",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "neon",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-en-ljspeech-neon.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.07
+    },
+    "coqui-en-ljspeech": {
+        "id": "coqui-en-ljspeech",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-en-ljspeech.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.07
+    },
+    "coqui-en-vctk": {
+        "id": "coqui-en-vctk",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "vctk",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-en-vctk.tar.bz2",
+        "compression": true,
+        "filesize_mb": 116.74
+    },
+    "coqui-es-css10": {
+        "id": "coqui-es-css10",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "css10",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "ES"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-es-css10.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.98
+    },
+    "coqui-et-cv": {
+        "id": "coqui-et-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "et",
+                "language_name": "Estonian",
+                "country": "EE"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-et-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-fi-css10": {
+        "id": "coqui-fi-css10",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "css10",
+        "language": [
+            {
+                "lang_code": "fi",
+                "language_name": "Finnish",
+                "country": "FI"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-fi-css10.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "coqui-fr-css10": {
+        "id": "coqui-fr-css10",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "css10",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-fr-css10.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "coqui-ga-cv": {
+        "id": "coqui-ga-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "ga",
+                "language_name": "Irish",
+                "country": "IE"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-ga-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "coqui-hr-cv": {
+        "id": "coqui-hr-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "hr",
+                "language_name": "Croatian",
+                "country": "HR"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-hr-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-lt-cv": {
+        "id": "coqui-lt-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "lt",
+                "language_name": "Lithuanian",
+                "country": "LT"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-lt-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.95
+    },
+    "coqui-lv-cv": {
+        "id": "coqui-lv-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "lv",
+                "language_name": "Latvian",
+                "country": "LV"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-lv-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.95
+    },
+    "coqui-mt-cv": {
+        "id": "coqui-mt-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "mt",
+                "language_name": "Maltese",
+                "country": "MT"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-mt-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-nl-css10": {
+        "id": "coqui-nl-css10",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "css10",
+        "language": [
+            {
+                "lang_code": "nl",
+                "language_name": "Dutch",
+                "country": "NL"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-nl-css10.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.01
+    },
+    "coqui-pl-mai_female": {
+        "id": "coqui-pl-mai_female",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "mai_female",
+        "language": [
+            {
+                "lang_code": "pl",
+                "language_name": "Polish",
+                "country": "PL"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-pl-mai_female.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-pt-cv": {
+        "id": "coqui-pt-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "pt",
+                "language_name": "Portuguese",
+                "country": "BR"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-pt-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "coqui-ro-cv": {
+        "id": "coqui-ro-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "ro",
+                "language_name": "Romanian",
+                "country": "RO"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-ro-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-sk-cv": {
+        "id": "coqui-sk-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "sk",
+                "language_name": "Slovak",
+                "country": "SK"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-sk-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-sl-cv": {
+        "id": "coqui-sl-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "sl",
+                "language_name": "Slovenian",
+                "country": "SI"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-sl-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "coqui-sv-cv": {
+        "id": "coqui-sv-cv",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "cv",
+        "language": [
+            {
+                "lang_code": "sv",
+                "language_name": "Swedish",
+                "country": "SE"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-sv-cv.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "coqui-uk-mai": {
+        "id": "coqui-uk-mai",
+        "model_type": "vits",
+        "developer": "coqui",
+        "name": "mai",
+        "language": [
+            {
+                "lang_code": "uk",
+                "language_name": "Ukrainian",
+                "country": "UA"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-coqui-uk-mai.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.91
+    },
+    "icefall-fs-ljspeech-low": {
+        "id": "icefall-fs-ljspeech-low",
+        "model_type": "vits",
+        "developer": "icefall",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-en_US-ljspeech-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 30.27
+    },
+    "icefall-fs-ljspeech-medium": {
+        "id": "icefall-fs-ljspeech-medium",
+        "model_type": "vits",
+        "developer": "icefall",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-en_US-ljspeech-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 70.13
+    },
+    "icefall-fs-aishell3": {
+        "id": "icefall-fs-aishell3",
+        "model_type": "vits",
+        "developer": "icefall",
+        "name": "aishell3",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2",
+        "compression": true,
+        "filesize_mb": 30.1
+    },
+    "ljs-fs-unknown": {
+        "id": "ljs-fs-unknown",
+        "model_type": "vits",
+        "developer": "ljs",
+        "name": "unknown",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-ljs.tar.bz2",
+        "compression": true,
+        "filesize_mb": 103.99
+    },
+    "melo-fs-en": {
+        "id": "melo-fs-en",
+        "model_type": "vits",
+        "developer": "melo",
+        "name": "en",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-en.tar.bz2",
+        "compression": true,
+        "filesize_mb": 155.22
+    },
+    "melo-fs-zh_en": {
+        "id": "melo-fs-zh_en",
+        "model_type": "vits",
+        "developer": "melo",
+        "name": "zh_en",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-melo-tts-zh_en.tar.bz2",
+        "compression": true,
+        "filesize_mb": 159.27
+    },
+    "mimic3-af-google-nwu_low": {
+        "id": "mimic3-af-google-nwu_low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "google",
+        "language": [
+            {
+                "lang_code": "af",
+                "language_name": "Afrikaans",
+                "country": "ZA"
+            }
+        ],
+        "quality": "nwu_low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-af_ZA-google-nwu_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.26
+    },
+    "mimic3-bn-multi": {
+        "id": "mimic3-bn-multi",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "multi",
+        "language": [
+            {
+                "lang_code": "bn",
+                "language_name": "Bangla",
+                "country": "BD"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-bn-multi_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.19
+    },
+    "mimic3-el-rapunzelina": {
+        "id": "mimic3-el-rapunzelina",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "rapunzelina",
+        "language": [
+            {
+                "lang_code": "el",
+                "language_name": "Greek",
+                "country": "GR"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-el_GR-rapunzelina_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.79
+    },
+    "mimic3-es-m-ailabs_low": {
+        "id": "mimic3-es-m-ailabs_low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "m",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "ES"
+            }
+        ],
+        "quality": "ailabs_low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-es_ES-m-ailabs_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.31
+    },
+    "mimic3-fa-haaniye": {
+        "id": "mimic3-fa-haaniye",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "haaniye",
+        "language": [
+            {
+                "lang_code": "fa",
+                "language_name": "Persian",
+                "country": "IR"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-fa-haaniye_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "mimic3-fi-harri-tapani": {
+        "id": "mimic3-fi-harri-tapani",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "harri",
+        "language": [
+            {
+                "lang_code": "fi",
+                "language_name": "Finnish",
+                "country": "FI"
+            }
+        ],
+        "quality": "tapani",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-fi_FI-harri-tapani-ylilammi_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.79
+    },
+    "mimic3-gu-cmu-low": {
+        "id": "mimic3-gu-cmu-low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "cmu",
+        "language": [
+            {
+                "lang_code": "gu",
+                "language_name": "Gujarati",
+                "country": "IN"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-gu_IN-cmu-indic_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.29
+    },
+    "mimic3-hu-diana-low": {
+        "id": "mimic3-hu-diana-low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "diana",
+        "language": [
+            {
+                "lang_code": "hu",
+                "language_name": "Hungarian",
+                "country": "HU"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-hu_HU-diana-majlinger_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.79
+    },
+    "mimic3-ko-kss": {
+        "id": "mimic3-ko-kss",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "kss",
+        "language": [
+            {
+                "lang_code": "ko",
+                "language_name": "Korean",
+                "country": "KO"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-ko_KO-kss_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.74
+    },
+    "mimic3-ne-ne-low": {
+        "id": "mimic3-ne-ne-low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "ne",
+        "language": [
+            {
+                "lang_code": "ne",
+                "language_name": "Nepali",
+                "country": "NP"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-ne_NP-ne-google_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.17
+    },
+    "mimic3-pl-m-ailabs_low": {
+        "id": "mimic3-pl-m-ailabs_low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "m",
+        "language": [
+            {
+                "lang_code": "pl",
+                "language_name": "Polish",
+                "country": "PL"
+            }
+        ],
+        "quality": "ailabs_low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-pl_PL-m-ailabs_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.3
+    },
+    "mimic3-tn-google-nwu_low": {
+        "id": "mimic3-tn-google-nwu_low",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "google",
+        "language": [
+            {
+                "lang_code": "tn",
+                "language_name": "Tswana",
+                "country": "ZA"
+            }
+        ],
+        "quality": "nwu_low",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-tn_ZA-google-nwu_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.22
+    },
+    "mimic3-vi-vais1000": {
+        "id": "mimic3-vi-vais1000",
+        "model_type": "vits",
+        "developer": "mimic3",
+        "name": "vais1000",
+        "language": [
+            {
+                "lang_code": "vi",
+                "language_name": "Vietnamese",
+                "country": "VN"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-mimic3-vi_VN-vais1000_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.73
+    },
+    "piper-ar-kareem-low": {
+        "id": "piper-ar-kareem-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kareem",
+        "language": [
+            {
+                "lang_code": "ar",
+                "language_name": "Arabic",
+                "country": "JO"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ar_JO-kareem-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.03
+    },
+    "piper-ar-kareem-medium": {
+        "id": "piper-ar-kareem-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kareem",
+        "language": [
+            {
+                "lang_code": "ar",
+                "language_name": "Arabic",
+                "country": "JO"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ar_JO-kareem-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.08
+    },
+    "piper-ca-upc_ona-medium": {
+        "id": "piper-ca-upc_ona-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "upc_ona",
+        "language": [
+            {
+                "lang_code": "ca",
+                "language_name": "Catalan",
+                "country": "ES"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ca_ES-upc_ona-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-ca-upc_ona-low": {
+        "id": "piper-ca-upc_ona-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "upc_ona",
+        "language": [
+            {
+                "lang_code": "ca",
+                "language_name": "Catalan",
+                "country": "ES"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ca_ES-upc_ona-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.27
+    },
+    "piper-ca-upc_pau-low": {
+        "id": "piper-ca-upc_pau-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "upc_pau",
+        "language": [
+            {
+                "lang_code": "ca",
+                "language_name": "Catalan",
+                "country": "ES"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ca_ES-upc_pau-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.28
+    },
+    "piper-cs-jirka-low": {
+        "id": "piper-cs-jirka-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "jirka",
+        "language": [
+            {
+                "lang_code": "cs",
+                "language_name": "Czech",
+                "country": "CZ"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-cs_CZ-jirka-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.06
+    },
+    "piper-cs-jirka-medium": {
+        "id": "piper-cs-jirka-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "jirka",
+        "language": [
+            {
+                "lang_code": "cs",
+                "language_name": "Czech",
+                "country": "CZ"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-cs_CZ-jirka-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.08
+    },
+    "piper-cy-gwryw_gogleddol-medium": {
+        "id": "piper-cy-gwryw_gogleddol-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "gwryw_gogleddol",
+        "language": [
+            {
+                "lang_code": "cy",
+                "language_name": "Welsh",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-cy_GB-gwryw_gogleddol-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.13
+    },
+    "piper-da-talesyntese-medium": {
+        "id": "piper-da-talesyntese-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "talesyntese",
+        "language": [
+            {
+                "lang_code": "da",
+                "language_name": "Danish",
+                "country": "DK"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-da_DK-talesyntese-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-de-eva_k-low": {
+        "id": "piper-de-eva_k-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "eva_k",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-eva_k-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.26
+    },
+    "piper-de-karlsson-low": {
+        "id": "piper-de-karlsson-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "karlsson",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-karlsson-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "piper-de-kerstin-low": {
+        "id": "piper-de-kerstin-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kerstin",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-kerstin-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "piper-de-pavoque-low": {
+        "id": "piper-de-pavoque-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "pavoque",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-pavoque-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.98
+    },
+    "piper-de-ramona-low": {
+        "id": "piper-de-ramona-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ramona",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-ramona-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.97
+    },
+    "piper-de-thorsten-high": {
+        "id": "piper-de-thorsten-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "thorsten",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.22
+    },
+    "piper-de-thorsten-low": {
+        "id": "piper-de-thorsten-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "thorsten",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "piper-de-thorsten-medium": {
+        "id": "piper-de-thorsten-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "thorsten",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-de-thorsten_emotional-medium": {
+        "id": "piper-de-thorsten_emotional-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "thorsten_emotional",
+        "language": [
+            {
+                "lang_code": "de",
+                "language_name": "German",
+                "country": "DE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten_emotional-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.47
+    },
+    "piper-el-rapunzelina-low": {
+        "id": "piper-el-rapunzelina-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "rapunzelina",
+        "language": [
+            {
+                "lang_code": "el",
+                "language_name": "Greek",
+                "country": "GR"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-el_GR-rapunzelina-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.93
+    },
+    "piper-en-alan-low": {
+        "id": "piper-en-alan-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "alan",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-alan-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.98
+    },
+    "piper-en-alan-medium": {
+        "id": "piper-en-alan-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "alan",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-alan-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-en-alba-medium": {
+        "id": "piper-en-alba-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "alba",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-alba-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-en-aru-medium": {
+        "id": "piper-en-aru-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "aru",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-aru-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.56
+    },
+    "piper-en-cori-high": {
+        "id": "piper-en-cori-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "cori",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-cori-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.21
+    },
+    "piper-en-cori-medium": {
+        "id": "piper-en-cori-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "cori",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-cori-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.17
+    },
+    "piper-en-jenny_dioco-medium": {
+        "id": "piper-en-jenny_dioco-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "jenny_dioco",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-jenny_dioco-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-en-northern_english_male-medium": {
+        "id": "piper-en-northern_english_male-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "northern_english_male",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-northern_english_male-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.08
+    },
+    "piper-en-semaine-medium": {
+        "id": "piper-en-semaine-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "semaine",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-semaine-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.52
+    },
+    "piper-en-southern_english_female-low": {
+        "id": "piper-en-southern_english_female-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "southern_english_female",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-southern_english_female-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.0
+    },
+    "piper-en-southern_english_female-medium": {
+        "id": "piper-en-southern_english_female-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "southern_english_female",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-southern_english_female-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.54
+    },
+    "piper-en-southern_english_female_medium": {
+        "id": "piper-en-southern_english_female_medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "southern_english_female_medium",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-southern_english_female_medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.54
+    },
+    "piper-en-southern_english_male-medium": {
+        "id": "piper-en-southern_english_male-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "southern_english_male",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-southern_english_male-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.6
+    },
+    "piper-en-sweetbbak-amy": {
+        "id": "piper-en-sweetbbak-amy",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "sweetbbak",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "amy",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-sweetbbak-amy.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.24
+    },
+    "piper-en-vctk-medium": {
+        "id": "piper-en-vctk-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "vctk",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "GB"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-vctk-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.75
+    },
+    "piper-en-amy-low": {
+        "id": "piper-en-amy-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "amy",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.0
+    },
+    "piper-en-amy-medium": {
+        "id": "piper-en-amy-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "amy",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-en-arctic-medium": {
+        "id": "piper-en-arctic-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "arctic",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-arctic-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.56
+    },
+    "piper-en-bryce-medium": {
+        "id": "piper-en-bryce-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "bryce",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-bryce-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.18
+    },
+    "piper-en-danny-low": {
+        "id": "piper-en-danny-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "danny",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-danny-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.0
+    },
+    "piper-en-glados": {
+        "id": "piper-en-glados",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "glados",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-glados.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-en-hfc_female-medium": {
+        "id": "piper-en-hfc_female-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "hfc_female",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-hfc_female-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-en-hfc_male-medium": {
+        "id": "piper-en-hfc_male-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "hfc_male",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-hfc_male-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-en-joe-medium": {
+        "id": "piper-en-joe-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "joe",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-joe-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.07
+    },
+    "piper-en-john-medium": {
+        "id": "piper-en-john-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "john",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-john-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.18
+    },
+    "piper-en-kathleen-low": {
+        "id": "piper-en-kathleen-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kathleen",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-kathleen-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.0
+    },
+    "piper-en-kristin-medium": {
+        "id": "piper-en-kristin-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kristin",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-kristin-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.17
+    },
+    "piper-en-kusal-medium": {
+        "id": "piper-en-kusal-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "kusal",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-kusal-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-en-l2arctic-medium": {
+        "id": "piper-en-l2arctic-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "l2arctic",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-l2arctic-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.56
+    },
+    "piper-en-lessac-high": {
+        "id": "piper-en-lessac-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lessac",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.2
+    },
+    "piper-en-lessac-low": {
+        "id": "piper-en-lessac-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lessac",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.01
+    },
+    "piper-en-lessac-medium": {
+        "id": "piper-en-lessac-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lessac",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-en-libritts-high": {
+        "id": "piper-en-libritts-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "libritts",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 124.94
+    },
+    "piper-en-libritts_r-medium": {
+        "id": "piper-en-libritts_r-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "libritts_r",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-libritts_r-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 78.19
+    },
+    "piper-en-ljspeech-high": {
+        "id": "piper-en-ljspeech-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ljspeech-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.42
+    },
+    "piper-en-ljspeech-medium": {
+        "id": "piper-en-ljspeech-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ljspeech",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ljspeech-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-en-norman-medium": {
+        "id": "piper-en-norman-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "norman",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-norman-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-en-ryan-high": {
+        "id": "piper-en-ryan-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ryan",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ryan-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 110.27
+    },
+    "piper-en-ryan-low": {
+        "id": "piper-en-ryan-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ryan",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ryan-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.99
+    },
+    "piper-en-ryan-medium": {
+        "id": "piper-en-ryan-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ryan",
+        "language": [
+            {
+                "lang_code": "en",
+                "language_name": "English",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ryan-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-fs-glados-medium": {
+        "id": "piper-fs-glados-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "glados",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es-glados-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-es-carlfm-low": {
+        "id": "piper-es-carlfm-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "carlfm",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "ES"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es_ES-carlfm-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.28
+    },
+    "piper-es-davefx-medium": {
+        "id": "piper-es-davefx-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "davefx",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "ES"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es_ES-davefx-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-es-sharvard-medium": {
+        "id": "piper-es-sharvard-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "sharvard",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "ES"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es_ES-sharvard-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.57
+    },
+    "piper-es-ald-medium": {
+        "id": "piper-es-ald-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ald",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "MX"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es_MX-ald-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.07
+    },
+    "piper-es-claude-high": {
+        "id": "piper-es-claude-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "claude",
+        "language": [
+            {
+                "lang_code": "es",
+                "language_name": "Spanish",
+                "country": "MX"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-es_MX-claude-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-fs-haaniye_low": {
+        "id": "piper-fs-haaniye_low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "haaniye_low",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fa-haaniye_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.98
+    },
+    "piper-fa-rezahedayatfar-ibrahimwalk": {
+        "id": "piper-fa-rezahedayatfar-ibrahimwalk",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "rezahedayatfar",
+        "language": [
+            {
+                "lang_code": "fa",
+                "language_name": "Persian",
+                "country": "en"
+            }
+        ],
+        "quality": "ibrahimwalk",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fa_en-rezahedayatfar-ibrahimwalk-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.13
+    },
+    "piper-fa-amir-medium": {
+        "id": "piper-fa-amir-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "amir",
+        "language": [
+            {
+                "lang_code": "fa",
+                "language_name": "Persian",
+                "country": "IR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fa_IR-amir-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-fa-gyro-medium": {
+        "id": "piper-fa-gyro-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "gyro",
+        "language": [
+            {
+                "lang_code": "fa",
+                "language_name": "Persian",
+                "country": "IR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fa_IR-gyro-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-fi-harri-low": {
+        "id": "piper-fi-harri-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "harri",
+        "language": [
+            {
+                "lang_code": "fi",
+                "language_name": "Finnish",
+                "country": "FI"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fi_FI-harri-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.03
+    },
+    "piper-fi-harri-medium": {
+        "id": "piper-fi-harri-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "harri",
+        "language": [
+            {
+                "lang_code": "fi",
+                "language_name": "Finnish",
+                "country": "FI"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fi_FI-harri-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.02
+    },
+    "piper-fr-gilles-low": {
+        "id": "piper-fr-gilles-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "gilles",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-gilles-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.98
+    },
+    "piper-fr-siwis-low": {
+        "id": "piper-fr-siwis-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "siwis",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-siwis-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.28
+    },
+    "piper-fr-siwis-medium": {
+        "id": "piper-fr-siwis-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "siwis",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-siwis-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-fr-tjiho-model1": {
+        "id": "piper-fr-tjiho-model1",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "tjiho",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "model1",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-tjiho-model1.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-fr-tjiho-model2": {
+        "id": "piper-fr-tjiho-model2",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "tjiho",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "model2",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-tjiho-model2.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-fr-tjiho-model3": {
+        "id": "piper-fr-tjiho-model3",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "tjiho",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "model3",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-tjiho-model3.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-fr-tom-medium": {
+        "id": "piper-fr-tom-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "tom",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-tom-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.14
+    },
+    "piper-fr-upmc-medium": {
+        "id": "piper-fr-upmc-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "upmc",
+        "language": [
+            {
+                "lang_code": "fr",
+                "language_name": "French",
+                "country": "FR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-fr_FR-upmc-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.67
+    },
+    "piper-hu-anna-medium": {
+        "id": "piper-hu-anna-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "anna",
+        "language": [
+            {
+                "lang_code": "hu",
+                "language_name": "Hungarian",
+                "country": "HU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-hu_HU-anna-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-hu-berta-medium": {
+        "id": "piper-hu-berta-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "berta",
+        "language": [
+            {
+                "lang_code": "hu",
+                "language_name": "Hungarian",
+                "country": "HU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-hu_HU-berta-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-hu-imre-medium": {
+        "id": "piper-hu-imre-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "imre",
+        "language": [
+            {
+                "lang_code": "hu",
+                "language_name": "Hungarian",
+                "country": "HU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-hu_HU-imre-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-is-bui-medium": {
+        "id": "piper-is-bui-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "bui",
+        "language": [
+            {
+                "lang_code": "is",
+                "language_name": "Icelandic",
+                "country": "IS"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-is_IS-bui-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.14
+    },
+    "piper-is-salka-medium": {
+        "id": "piper-is-salka-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "salka",
+        "language": [
+            {
+                "lang_code": "is",
+                "language_name": "Icelandic",
+                "country": "IS"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-is_IS-salka-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.21
+    },
+    "piper-is-steinn-medium": {
+        "id": "piper-is-steinn-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "steinn",
+        "language": [
+            {
+                "lang_code": "is",
+                "language_name": "Icelandic",
+                "country": "IS"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-is_IS-steinn-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.23
+    },
+    "piper-is-ugla-medium": {
+        "id": "piper-is-ugla-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ugla",
+        "language": [
+            {
+                "lang_code": "is",
+                "language_name": "Icelandic",
+                "country": "IS"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-is_IS-ugla-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.22
+    },
+    "piper-it-paola-medium": {
+        "id": "piper-it-paola-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "paola",
+        "language": [
+            {
+                "lang_code": "it",
+                "language_name": "Italian",
+                "country": "IT"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-it_IT-paola-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.13
+    },
+    "piper-it-riccardo-low": {
+        "id": "piper-it-riccardo-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "riccardo",
+        "language": [
+            {
+                "lang_code": "it",
+                "language_name": "Italian",
+                "country": "IT"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-it_IT-riccardo-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.24
+    },
+    "piper-ka-natia-medium": {
+        "id": "piper-ka-natia-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "natia",
+        "language": [
+            {
+                "lang_code": "ka",
+                "language_name": "Georgian",
+                "country": "GE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ka_GE-natia-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-kk-iseke-low": {
+        "id": "piper-kk-iseke-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "iseke",
+        "language": [
+            {
+                "lang_code": "kk",
+                "language_name": "Kazakh",
+                "country": "KZ"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-kk_KZ-iseke-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.31
+    },
+    "piper-kk-issai-high": {
+        "id": "piper-kk-issai-high",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "issai",
+        "language": [
+            {
+                "lang_code": "kk",
+                "language_name": "Kazakh",
+                "country": "KZ"
+            }
+        ],
+        "quality": "high",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-kk_KZ-issai-high.tar.bz2",
+        "compression": true,
+        "filesize_mb": 123.26
+    },
+    "piper-kk-raya-low": {
+        "id": "piper-kk-raya-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "raya",
+        "language": [
+            {
+                "lang_code": "kk",
+                "language_name": "Kazakh",
+                "country": "KZ"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-kk_KZ-raya-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.31
+    },
+    "piper-lb-marylux-medium": {
+        "id": "piper-lb-marylux-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "marylux",
+        "language": [
+            {
+                "lang_code": "lb",
+                "language_name": "Luxembourgish",
+                "country": "LU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-lb_LU-marylux-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-lv-aivars-medium": {
+        "id": "piper-lv-aivars-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "aivars",
+        "language": [
+            {
+                "lang_code": "lv",
+                "language_name": "Latvian",
+                "country": "LV"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-lv_LV-aivars-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.07
+    },
+    "piper-ne-google-medium": {
+        "id": "piper-ne-google-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "google",
+        "language": [
+            {
+                "lang_code": "ne",
+                "language_name": "Nepali",
+                "country": "NP"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ne_NP-google-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.55
+    },
+    "piper-ne-google-low": {
+        "id": "piper-ne-google-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "google",
+        "language": [
+            {
+                "lang_code": "ne",
+                "language_name": "Nepali",
+                "country": "NP"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ne_NP-google-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 31.63
+    },
+    "piper-nl-nathalie-medium": {
+        "id": "piper-nl-nathalie-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "nathalie",
+        "language": [
+            {
+                "lang_code": "nl",
+                "language_name": "Dutch",
+                "country": "BE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-nl_BE-nathalie-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-nl-nathalie-low": {
+        "id": "piper-nl-nathalie-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "nathalie",
+        "language": [
+            {
+                "lang_code": "nl",
+                "language_name": "Dutch",
+                "country": "BE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-nl_BE-nathalie-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.23
+    },
+    "piper-nl-rdh-medium": {
+        "id": "piper-nl-rdh-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "rdh",
+        "language": [
+            {
+                "lang_code": "nl",
+                "language_name": "Dutch",
+                "country": "BE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-nl_BE-rdh-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.94
+    },
+    "piper-nl-rdh-low": {
+        "id": "piper-nl-rdh-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "rdh",
+        "language": [
+            {
+                "lang_code": "nl",
+                "language_name": "Dutch",
+                "country": "BE"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-nl_BE-rdh-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.23
+    },
+    "piper-no-talesyntese-medium": {
+        "id": "piper-no-talesyntese-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "talesyntese",
+        "language": [
+            {
+                "lang_code": "no",
+                "language_name": "Norwegian",
+                "country": "NO"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-no_NO-talesyntese-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-pl-darkman-medium": {
+        "id": "piper-pl-darkman-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "darkman",
+        "language": [
+            {
+                "lang_code": "pl",
+                "language_name": "Polish",
+                "country": "PL"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pl_PL-darkman-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-pl-gosia-medium": {
+        "id": "piper-pl-gosia-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "gosia",
+        "language": [
+            {
+                "lang_code": "pl",
+                "language_name": "Polish",
+                "country": "PL"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pl_PL-gosia-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.04
+    },
+    "piper-pl-mc_speech-medium": {
+        "id": "piper-pl-mc_speech-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "mc_speech",
+        "language": [
+            {
+                "lang_code": "pl",
+                "language_name": "Polish",
+                "country": "PL"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pl_PL-mc_speech-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.12
+    },
+    "piper-pt-edresson-low": {
+        "id": "piper-pt-edresson-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "edresson",
+        "language": [
+            {
+                "lang_code": "pt",
+                "language_name": "Portuguese",
+                "country": "BR"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pt_BR-edresson-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.97
+    },
+    "piper-pt-faber-medium": {
+        "id": "piper-pt-faber-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "faber",
+        "language": [
+            {
+                "lang_code": "pt",
+                "language_name": "Portuguese",
+                "country": "BR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pt_BR-faber-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-pt-tugao-medium": {
+        "id": "piper-pt-tugao-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "tugao",
+        "language": [
+            {
+                "lang_code": "pt",
+                "language_name": "Portuguese",
+                "country": "PT"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-pt_PT-tugao-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-ro-mihai-medium": {
+        "id": "piper-ro-mihai-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "mihai",
+        "language": [
+            {
+                "lang_code": "ro",
+                "language_name": "Romanian",
+                "country": "RO"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ro_RO-mihai-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-ru-denis-medium": {
+        "id": "piper-ru-denis-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "denis",
+        "language": [
+            {
+                "lang_code": "ru",
+                "language_name": "Russian",
+                "country": "RU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ru_RU-denis-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-ru-dmitri-medium": {
+        "id": "piper-ru-dmitri-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "dmitri",
+        "language": [
+            {
+                "lang_code": "ru",
+                "language_name": "Russian",
+                "country": "RU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ru_RU-dmitri-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-ru-irina-medium": {
+        "id": "piper-ru-irina-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "irina",
+        "language": [
+            {
+                "lang_code": "ru",
+                "language_name": "Russian",
+                "country": "RU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ru_RU-irina-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.06
+    },
+    "piper-ru-ruslan-medium": {
+        "id": "piper-ru-ruslan-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ruslan",
+        "language": [
+            {
+                "lang_code": "ru",
+                "language_name": "Russian",
+                "country": "RU"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-ru_RU-ruslan-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.07
+    },
+    "piper-sk-lili-medium": {
+        "id": "piper-sk-lili-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lili",
+        "language": [
+            {
+                "lang_code": "sk",
+                "language_name": "Slovak",
+                "country": "SK"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-sk_SK-lili-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-sl-artur-medium": {
+        "id": "piper-sl-artur-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "artur",
+        "language": [
+            {
+                "lang_code": "sl",
+                "language_name": "Slovenian",
+                "country": "SI"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-sl_SI-artur-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.89
+    },
+    "piper-sr-serbski_institut-medium": {
+        "id": "piper-sr-serbski_institut-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "serbski_institut",
+        "language": [
+            {
+                "lang_code": "sr",
+                "language_name": "Serbian",
+                "country": "RS"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-sr_RS-serbski_institut-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.56
+    },
+    "piper-sv-nst-medium": {
+        "id": "piper-sv-nst-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "nst",
+        "language": [
+            {
+                "lang_code": "sv",
+                "language_name": "Swedish",
+                "country": "SE"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-sv_SE-nst-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.03
+    },
+    "piper-sw-lanfrica-medium": {
+        "id": "piper-sw-lanfrica-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lanfrica",
+        "language": [
+            {
+                "lang_code": "sw",
+                "language_name": "Swahili",
+                "country": "CD"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-sw_CD-lanfrica-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-tr-dfki-medium": {
+        "id": "piper-tr-dfki-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "dfki",
+        "language": [
+            {
+                "lang_code": "tr",
+                "language_name": "Turkish",
+                "country": "TR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-tr_TR-dfki-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.11
+    },
+    "piper-tr-fahrettin-medium": {
+        "id": "piper-tr-fahrettin-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "fahrettin",
+        "language": [
+            {
+                "lang_code": "tr",
+                "language_name": "Turkish",
+                "country": "TR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-tr_TR-fahrettin-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.1
+    },
+    "piper-tr-fettah-medium": {
+        "id": "piper-tr-fettah-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "fettah",
+        "language": [
+            {
+                "lang_code": "tr",
+                "language_name": "Turkish",
+                "country": "TR"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-tr_TR-fettah-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.09
+    },
+    "piper-uk-lada-low": {
+        "id": "piper-uk-lada-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "lada",
+        "language": [
+            {
+                "lang_code": "uk",
+                "language_name": "Ukrainian",
+                "country": "UA"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-uk_UA-lada-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 25.25
+    },
+    "piper-uk-ukrainian_tts-medium": {
+        "id": "piper-uk-ukrainian_tts-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "ukrainian_tts",
+        "language": [
+            {
+                "lang_code": "uk",
+                "language_name": "Ukrainian",
+                "country": "UA"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-uk_UA-ukrainian_tts-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 76.6
+    },
+    "piper-vi-25hours_single-low": {
+        "id": "piper-vi-25hours_single-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "25hours_single",
+        "language": [
+            {
+                "lang_code": "vi",
+                "language_name": "Vietnamese",
+                "country": "VN"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-vi_VN-25hours_single-low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 63.96
+    },
+    "piper-vi-vais1000-medium": {
+        "id": "piper-vi-vais1000-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "vais1000",
+        "language": [
+            {
+                "lang_code": "vi",
+                "language_name": "Vietnamese",
+                "country": "VN"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-vi_VN-vais1000-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.02
+    },
+    "piper-vi-vivos-low": {
+        "id": "piper-vi-vivos-low",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "vivos",
+        "language": [
+            {
+                "lang_code": "vi",
+                "language_name": "Vietnamese",
+                "country": "VN"
+            }
+        ],
+        "quality": "low",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-vi_VN-vivos-x_low.tar.bz2",
+        "compression": true,
+        "filesize_mb": 31.8
+    },
+    "piper-zh-huayan-medium": {
+        "id": "piper-zh-huayan-medium",
+        "model_type": "vits",
+        "developer": "piper",
+        "name": "huayan",
+        "language": [
+            {
+                "lang_code": "zh",
+                "language_name": "Chinese",
+                "country": "CN"
+            }
+        ],
+        "quality": "medium",
+        "sample_rate": 22050,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-zh_CN-huayan-medium.tar.bz2",
+        "compression": true,
+        "filesize_mb": 64.14
+    },
+    "vctk-fs-unknown": {
+        "id": "vctk-fs-unknown",
+        "model_type": "vits",
+        "developer": "vctk",
+        "name": "unknown",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-vctk.tar.bz2",
+        "compression": true,
+        "filesize_mb": 144.73
+    },
+    "zh-fs-unknown": {
+        "id": "zh-fs-unknown",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "unknown",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-aishell3.tar.bz2",
+        "compression": true,
+        "filesize_mb": 140.12
+    },
+    "zh-fs-abyssinvoker": {
+        "id": "zh-fs-abyssinvoker",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "abyssinvoker",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-abyssinvoker.tar.bz2",
+        "compression": true,
+        "filesize_mb": 114.99
+    },
+    "zh-fs-bronya": {
+        "id": "zh-fs-bronya",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "bronya",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-bronya.tar.bz2",
+        "compression": true,
+        "filesize_mb": 115.01
+    },
+    "zh-fs-doom": {
+        "id": "zh-fs-doom",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "doom",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-doom.tar.bz2",
+        "compression": true,
+        "filesize_mb": 114.97
+    },
+    "zh-fs-echo": {
+        "id": "zh-fs-echo",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "echo",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-echo.tar.bz2",
+        "compression": true,
+        "filesize_mb": 114.97
+    },
+    "zh-fs-eula": {
+        "id": "zh-fs-eula",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "eula",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-eula.tar.bz2",
+        "compression": true,
+        "filesize_mb": 114.98
+    },
+    "zh-fs-fanchen-C": {
+        "id": "zh-fs-fanchen-C",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "fanchen",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "C",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-fanchen-C.tar.bz2",
+        "compression": true,
+        "filesize_mb": 113.8
+    },
+    "zh-fs-fanchen-unity": {
+        "id": "zh-fs-fanchen-unity",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "fanchen",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unity",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-fanchen-unity.tar.bz2",
+        "compression": true,
+        "filesize_mb": 113.62
+    },
+    "zh-fs-fanchen-wnj": {
+        "id": "zh-fs-fanchen-wnj",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "fanchen",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "wnj",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-fanchen-wnj.tar.bz2",
+        "compression": true,
+        "filesize_mb": 113.64
+    },
+    "zh-fs-fanchen-ZhiHuiLaoZhe": {
+        "id": "zh-fs-fanchen-ZhiHuiLaoZhe",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "fanchen",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "ZhiHuiLaoZhe",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-fanchen-ZhiHuiLaoZhe.tar.bz2",
+        "compression": true,
+        "filesize_mb": 113.93
+    },
+    "zh-fs-fanchen-new": {
+        "id": "zh-fs-fanchen-new",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "fanchen",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "new",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-fanchen-ZhiHuiLaoZhe_new.tar.bz2",
+        "compression": true,
+        "filesize_mb": 113.87
+    },
+    "zh-fs-keqing": {
+        "id": "zh-fs-keqing",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "keqing",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-keqing.tar.bz2",
+        "compression": true,
+        "filesize_mb": 115.01
+    },
+    "zh-fs-theresa": {
+        "id": "zh-fs-theresa",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "theresa",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-theresa.tar.bz2",
+        "compression": true,
+        "filesize_mb": 115.01
+    },
+    "zh-fs-zenyatta": {
+        "id": "zh-fs-zenyatta",
+        "model_type": "vits",
+        "developer": "zh",
+        "name": "zenyatta",
+        "language": [
+            {
+                "lang_code": "fs",
+                "language_name": "Unknown language [fs]",
+                "country": "US"
+            }
+        ],
+        "quality": "unknown",
+        "sample_rate": 16000,
+        "num_speakers": 1,
+        "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-zh-hf-zenyatta.tar.bz2",
+        "compression": true,
+        "filesize_mb": 115.0
+    }
+}

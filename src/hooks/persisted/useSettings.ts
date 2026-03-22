@@ -115,6 +115,9 @@ export interface ChapterReaderSettings {
     autoPageAdvance?: boolean;
     scrollToTop?: boolean;
   };
+  ttsEngine?: 'system' | 'sherpa';
+  sherpaTtsVoiceId?: string;
+  sherpaSpeed?: number;
   epubLocation: string;
   epubUseAppTheme: boolean;
   epubUseCustomCSS: boolean;
@@ -205,6 +208,9 @@ export const initialChapterReaderSettings: ChapterReaderSettings = {
     autoPageAdvance: false,
     scrollToTop: true,
   },
+  ttsEngine: 'system',
+  sherpaTtsVoiceId: undefined,
+  sherpaSpeed: 1.0,
   epubLocation: '',
   epubUseAppTheme: false,
   epubUseCustomCSS: false,
@@ -281,6 +287,9 @@ export const useChapterReaderSettings = () => {
   // Ensure TTS settings have proper defaults (migration for existing users)
   const chapterReaderSettings = {
     ...storedSettings,
+    ttsEngine: storedSettings.ttsEngine ?? 'system',
+    sherpaTtsVoiceId: storedSettings.sherpaTtsVoiceId,
+    sherpaSpeed: storedSettings.sherpaSpeed ?? 1.0,
     tts: {
       ...initialChapterReaderSettings.tts,
       ...storedSettings.tts,

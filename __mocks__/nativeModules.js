@@ -65,3 +65,19 @@ jest.mock('@specs/NativeZipArchive', () => ({
     remoteZip: jest.fn().mockResolvedValue(''),
   },
 }));
+
+jest.mock('@specs/NativeSherpaOnnxTTS', () => ({
+  __esModule: true,
+  default: {
+    initEngine: jest.fn().mockResolvedValue(undefined),
+    deinitEngine: jest.fn().mockResolvedValue(undefined),
+    speak: jest.fn().mockResolvedValue(undefined),
+    speakAll: jest.fn().mockResolvedValue(undefined),
+    pause: jest.fn().mockResolvedValue(undefined),
+    resume: jest.fn().mockResolvedValue(undefined),
+    stop: jest.fn().mockResolvedValue(undefined),
+    getFilesDir: jest.fn().mockResolvedValue('/mock/files'),
+    extractTarBz2: jest.fn().mockResolvedValue(undefined),
+    deleteVoiceDir: jest.fn().mockResolvedValue(undefined),
+  },
+}));

@@ -12,6 +12,7 @@ import com.facebook.react.bridge.WritableNativeMap
 import com.facebook.react.modules.network.CookieJarContainer
 import com.facebook.react.modules.network.ForwardingCookieHandler
 import com.facebook.react.modules.network.OkHttpClientProvider
+import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.lnreader.spec.NativeFileSpec
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +39,8 @@ class NativeFile(context: ReactApplicationContext) :
     private val BUFFER_SIZE = 4096
     private val okHttpClient = OkHttpClientProvider.createClient()
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
+    // Tracks in-flight download calls by destPath so they can be cancelled.
+    private val activeCalls = java.util.concurrent.ConcurrentHashMap<String, okhttp3.Call>()
 
     init {
         val cookieContainer = okHttpClient.cookieJar as CookieJarContainer
@@ -202,26 +205,50 @@ class NativeFile(context: ReactApplicationContext) :
                     requestBuilder.post(body.toRequestBody())
                 }
 
-                okHttpClient.newCall(requestBuilder.build())
-                    .enqueue(object : Callback {
+                val call = okHttpClient.newCall(requestBuilder.build())
+                activeCalls[destPath] = call
+                call.enqueue(object : Callback {
                         override fun onFailure(call: Call, e: IOException) {
+                            activeCalls.remove(destPath)
                             promise.reject(e)
                         }
 
                         override fun onResponse(call: Call, response: Response) {
                             response.use {
                                 if (!it.isSuccessful || it.body == null) {
+                                    activeCalls.remove(destPath)
                                     promise.reject(Exception("Failed to download: ${it.code}"))
                                     return
                                 }
                                 try {
+                                    val contentLength = it.body!!.contentLength()
+                                    var totalRead = 0L
+                                    var lastEmitted = 0L
+                                    val emitInterval = 256 * 1024L // emit every 256 KB
+                                    val buffer = ByteArray(BUFFER_SIZE)
                                     decompressStream(it.body!!.byteStream()).use { inputStream ->
                                         FileOutputStream(destPath).use { fos ->
-                                            inputStream.copyTo(fos, BUFFER_SIZE)
+                                            var read: Int
+                                            while (inputStream.read(buffer).also { read = it } != -1) {
+                                                fos.write(buffer, 0, read)
+                                                totalRead += read
+                                                if (contentLength > 0 && totalRead - lastEmitted >= emitInterval) {
+                                                    lastEmitted = totalRead
+                                                    val params = WritableNativeMap()
+                                                    params.putString("destPath", destPath)
+                                                    params.putDouble("loaded", totalRead.toDouble())
+                                                    params.putDouble("total", contentLength.toDouble())
+                                                    reactApplicationContext.getJSModule(
+                                                        DeviceEventManagerModule.RCTDeviceEventEmitter::class.java
+                                                    ).emit("NativeFile_downloadProgress", params)
+                                                }
+                                            }
                                         }
                                     }
+                                    activeCalls.remove(destPath)
                                     promise.resolve(null)
                                 } catch (e: Exception) {
+                                    activeCalls.remove(destPath)
                                     promise.reject(e)
                                 }
                             }
@@ -231,6 +258,10 @@ class NativeFile(context: ReactApplicationContext) :
                 promise.reject(e)
             }
         }
+    }
+
+    override fun cancelDownload(destPath: String) {
+        activeCalls.remove(destPath)?.cancel()
     }
 
     override fun getTypedExportedConstants(): MutableMap<String, Any> {
@@ -245,4 +276,7 @@ class NativeFile(context: ReactApplicationContext) :
         }
         return constants
     }
+
+    override fun addListener(eventName: String?) { /* required for NativeEventEmitter */ }
+    override fun removeListeners(count: Double) { /* required for NativeEventEmitter */ }
 }
